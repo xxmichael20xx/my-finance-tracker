@@ -13,12 +13,20 @@ class RolesAndPermissionEnum
     public const CAN_DELETE_USER = 'can delete user';
     public const CAN_RESTORE_USER = 'can restore user';
 
-    public const CAN_VIEW_FINANCES = 'can view finances';
-    public const CAN_CREATE_FINANCE = 'can create finance';
-    public const CAN_EDIT_FINANCE = 'can edit finance';
-    public const CAN_DELETE_FINANCE = 'can delete finance';
-    public const CAN_RESTORE_FINANCE = 'can restore finance';
-    public const CAN_EXPORT_FINANCE = 'can export finance';
+    public const CAN_LIST_EXPENSES = 'can list expenses';
+    public const CAN_VIEW_EXPENSES = 'can view expenses';
+    public const CAN_CREATE_EXPENSE = 'can create expense';
+    public const CAN_EDIT_EXPENSE = 'can edit expense';
+    public const CAN_DELETE_EXPENSE = 'can delete expense';
+    public const CAN_RESTORE_EXPENSE = 'can restore expense';
+    public const CAN_EXPORT_EXPENSE = 'can export expense';
+
+    public const CAN_LIST_EXPENSE_TYPES = 'can list expense types';
+    public const CAN_VIEW_EXPENSE_TYPE = 'can view expense type';
+    public const CAN_CREATE_EXPENSE_TYPE = 'can create expense type';
+    public const CAN_EDIT_EXPENSE_TYPE = 'can edit expense type';
+    public const CAN_DELETE_EXPENSE_TYPE = 'can delete expense type';
+    public const CAN_RESTORE_EXPENSE_TYPE = 'can restore expense type';
 
     /**
      * Return all constants
@@ -36,12 +44,20 @@ class RolesAndPermissionEnum
                 self::CAN_DELETE_USER,
                 self::CAN_RESTORE_USER,
 
-                self::CAN_VIEW_FINANCES,
-                self::CAN_CREATE_FINANCE,
-                self::CAN_EDIT_FINANCE,
-                self::CAN_DELETE_FINANCE,
-                self::CAN_RESTORE_FINANCE,
-                self::CAN_EXPORT_FINANCE,
+                self::CAN_LIST_EXPENSES,
+                self::CAN_VIEW_EXPENSES,
+                self::CAN_CREATE_EXPENSE,
+                self::CAN_EDIT_EXPENSE,
+                self::CAN_DELETE_EXPENSE,
+                self::CAN_RESTORE_EXPENSE,
+                self::CAN_EXPORT_EXPENSE,
+
+                self::CAN_LIST_EXPENSE_TYPES,
+                self::CAN_VIEW_EXPENSE_TYPE,
+                self::CAN_CREATE_EXPENSE_TYPE,
+                self::CAN_EDIT_EXPENSE_TYPE,
+                self::CAN_DELETE_EXPENSE_TYPE,
+                self::CAN_RESTORE_EXPENSE_TYPE,
             ]
         ];
     }
