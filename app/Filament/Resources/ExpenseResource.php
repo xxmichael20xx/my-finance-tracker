@@ -4,11 +4,11 @@ namespace App\Filament\Resources;
 
 use App\Enum\ExpenseStatusEnum;
 use App\Filament\Resources\ExpenseResource\Pages;
-use App\Filament\Resources\ExpenseResource\RelationManagers;
 use App\Models\Expense;
 use App\Models\ExpenseType;
-use App\Models\Income;
+use App\Util\AccountingUtil;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -89,25 +89,31 @@ class ExpenseResource extends Resource
 
     public static function resourceForm(): array
     {
+        $availableFinance = AccountingUtil::getAvailableFinance(true);
+
         return [
-            Forms\Components\TextInput::make('title')
-                ->required()
-                ->maxLength(255),
-            Forms\Components\Select::make('expense_type_id')
-                ->label(__('Expense Type'))
-                ->required()
-                ->options(fn () => ExpenseType::query()->pluck('type', 'id'))
-                ->searchable(),
-            Forms\Components\TextInput::make('amount')
-                ->required()
-                ->numeric()
-                ->maxValue(Income::all()->sum('amount')),
-            Forms\Components\Select::make('status')
-                ->required()
-                ->default(ExpenseStatusEnum::NORMAL)
-                ->options(ExpenseStatusEnum::toOptions()),
-            Forms\Components\Textarea::make('notes')
-                ->columnSpanFull(),
+            Section::make('Important Information')
+                ->description('💡 Can add expense with a maximum amount of ' . $availableFinance)
+                ->schema([
+                    Forms\Components\TextInput::make('title')
+                        ->required()
+                        ->maxLength(255),
+                    Forms\Components\Select::make('expense_type_id')
+                        ->label(__('Expense Type'))
+                        ->required()
+                        ->options(fn () => ExpenseType::query()->pluck('type', 'id'))
+                        ->searchable(),
+                    Forms\Components\TextInput::make('amount')
+                        ->required()
+                        ->numeric()
+                        ->maxValue(AccountingUtil::getAvailableFinance()),
+                    Forms\Components\Select::make('status')
+                        ->required()
+                        ->default(ExpenseStatusEnum::NORMAL)
+                        ->options(ExpenseStatusEnum::toOptions()),
+                    Forms\Components\Textarea::make('notes')
+                        ->columnSpanFull(),
+                ])
         ];
     }
 }

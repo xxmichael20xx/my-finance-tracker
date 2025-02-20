@@ -28,6 +28,13 @@ class RolesAndPermissionEnum
     public const CAN_DELETE_EXPENSE_TYPE = 'can delete expense type';
     public const CAN_RESTORE_EXPENSE_TYPE = 'can restore expense type';
 
+    public const CAN_LIST_SAVING = 'can list savings';
+    public const CAN_VIEW_SAVING = 'can view saving';
+    public const CAN_CREATE_SAVING = 'can create saving';
+    public const CAN_EDIT_SAVING = 'can edit saving';
+    public const CAN_DELETE_SAVING = 'can delete saving';
+    public const CAN_RESTORE_SAVING = 'can restore saving';
+
     /**
      * Return all constants
      *
@@ -58,6 +65,13 @@ class RolesAndPermissionEnum
                 self::CAN_EDIT_EXPENSE_TYPE,
                 self::CAN_DELETE_EXPENSE_TYPE,
                 self::CAN_RESTORE_EXPENSE_TYPE,
+
+                self::CAN_LIST_SAVING,
+                self::CAN_VIEW_SAVING,
+                self::CAN_CREATE_SAVING,
+                self::CAN_EDIT_SAVING,
+                self::CAN_DELETE_SAVING,
+                self::CAN_RESTORE_SAVING,
             ]
         ];
     }
